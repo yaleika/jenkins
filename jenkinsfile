@@ -22,7 +22,6 @@ stages{
     stage ('install'){
         steps {
             git branch: 'main', url: 'https://github.com/yaleika/jenkins.git'
-            dir ('JENKIS'){ sh 'npm install'}
             echo "hola mundo"
         }
     }
