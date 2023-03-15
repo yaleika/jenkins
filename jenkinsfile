@@ -1,0 +1,38 @@
+pipeline {
+
+agent any
+
+tools {
+
+nodejs "node"
+
+}
+
+parameters{
+
+    string (name: 'container_name', defaultvalue: 'pagina_web', description:'nombre del conteneedor')
+    string (name:'imagen_name', defaultvalue:'pagina_img', description:'nombre de la imagen docker')
+     string (name:'tag_name', defaultvalue:'lts', description:'tag de la imagen de la pagina docker')
+      string (name:'container_port', defaultvalue:'80', description:'puerto que usa el contenedor')
+
+
+}
+
+stages{
+
+    stage ('install'){
+        steps {
+            git branch: 'main', url: 'https://github.com/yaleika/jenkins.git'
+            dir ('JENKIS'){ sh 'npm install'}
+            echo "hola mundo"
+        }
+
+
+    }
+
+
+}
+
+
+}
+
